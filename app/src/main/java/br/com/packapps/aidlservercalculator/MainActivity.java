@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvResultCalculate;
     private ServiceConnection serviceConnection;
+    private EditText etNumber1;
+    private EditText etNumber2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         tvResultCalculate = (TextView) findViewById(R.id.tvResultCalculate);
+        etNumber1 = (EditText) findViewById(R.id.etNumber1);
+        etNumber2 = (EditText) findViewById(R.id.etNumber2);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 try{
-                    double result = aidlInterface.soma(10, 7);
+                    double number1 = Double.parseDouble(etNumber1.getText().toString());
+                    double number2 = Double.parseDouble(etNumber2.getText().toString());
+                    double result = aidlInterface.soma(number1, number2);
                     tvResultCalculate.setText("Result: " + result);
                 }catch (Exception e){
                     Log.e("TAG", "error: "+ e.getMessage());
