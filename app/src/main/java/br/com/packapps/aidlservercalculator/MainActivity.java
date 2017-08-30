@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     double number1 = Double.parseDouble(etNumber1.getText().toString());
                     double number2 = Double.parseDouble(etNumber2.getText().toString());
                     double result = aidlInterface.soma(number1, number2);
-                    tvResultCalculate.setText("Result: " + result);
+                    tvResultCalculate.setText("" + result);
                 }catch (Exception e){
                     Log.e("TAG", "error: "+ e.getMessage());
                 }
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onServiceDisconnected(ComponentName name) {
                 Log.i("TAG", "onServiceDisconnected");
+                aidlInterface = null;
             }
         };
 
