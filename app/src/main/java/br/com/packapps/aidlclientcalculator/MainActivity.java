@@ -1,4 +1,4 @@
-package br.com.packapps.aidlservercalculator;
+package br.com.packapps.aidlclientcalculator;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import br.com.packapps.aidlservercalculator.IMyAidlInterface;
 
 public class MainActivity extends AppCompatActivity {
 

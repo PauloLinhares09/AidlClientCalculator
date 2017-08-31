@@ -1,4 +1,4 @@
-package br.com.packapps.aidlservercalculator;
+package br.com.packapps.aidlclientcalculator;
 
 import org.junit.Test;
 
